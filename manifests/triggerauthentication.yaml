@@ -1,0 +1,10 @@
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: prometheus-auth
+  namespace: keda-demo
+spec:
+  secretTargetRef:
+  - parameter: bearerToken
+    name: thanos-token
+    key: token
