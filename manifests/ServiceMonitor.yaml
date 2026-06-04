@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: keda-app
+  namespace: keda-demo
+spec:
+  selector:
+    matchLabels:
+      app: keda-app
+
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 15s
