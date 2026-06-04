@@ -19,3 +19,14 @@ The application exposes Prometheus metrics through a /metrics endpoint. KEDA mon
 - Validated automatic scale-out from 1 to 10 pods under heavy traffic.
 - Verified automatic scale-in back to the minimum replica count after traffic reduction.
 - Troubleshot ServiceMonitor, Prometheus scraping, authentication, and custom metrics scaling issues.
+
+## Implementation Steps
+- Deploy Prometheus Instrumented Application
+- Expose Metrics using Service
+- Configure ServiceMonitor
+- Enable User Workload Monitoring
+- Install KEDA Operator
+- Configure TriggerAuthentication
+- Create Prometheus-based ScaledObject
+- Generate Traffic using ApacheBench
+- Validate Scale-Out and Scale-In
