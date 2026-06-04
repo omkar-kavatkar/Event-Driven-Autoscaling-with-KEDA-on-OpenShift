@@ -1,0 +1,21 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: keda-app-scaler
+  namespace: keda-demo
+spec:
+  scaleTargetRef:
+    name: keda-app
+  pollingInterval: 15
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  triggers:
+  - type: prometheus
+    metadata:
+      serverAddress: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
+      authModes: bearer
+      metricName: requests
+      query: sum(rate(http_requests_total[1m]))
+      threshold: "5"
+    authenticationRef:
+      name: prometheus-auth
