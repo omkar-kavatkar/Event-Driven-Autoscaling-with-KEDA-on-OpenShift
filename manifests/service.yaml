@@ -1,13 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2026-06-03T05:40:32Z"
   labels:
     app: keda-app
   name: keda-app
   namespace: keda-demo
-  resourceVersion: "328972"
-  uid: 0e68691a-7fbb-4b83-ac6c-47c1402782fb
 spec:
   clusterIP: 172.31.102.180
   clusterIPs:
@@ -25,5 +22,3 @@ spec:
     app: keda-app
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
